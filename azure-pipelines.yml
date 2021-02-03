@@ -6,11 +6,10 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 jobs:
 - job: Ubuntu
+  pool:
+    vmImage: 'ubuntu-latest'
   steps:
   - task: Maven@3
     inputs:
@@ -24,6 +23,8 @@ jobs:
       goals: 'package'
 
 - job: Windows
+  pool:
+    vmImage: 'Windows-2019'
   steps:
   - task: Maven@3
     inputs:
@@ -37,6 +38,8 @@ jobs:
       goals: 'package'
 
 - job: MAC
+  pool:
+    vmImage: 'macos-latest'
   steps:
   - task: Maven@3
     inputs:
