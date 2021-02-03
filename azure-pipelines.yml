@@ -23,7 +23,6 @@ jobs:
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'package'
 
-jobs:
 - job: Windows
   steps:
   - task: Maven@3
@@ -37,7 +36,6 @@ jobs:
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'package'
 
-jobs:
 - job: MAC
   steps:
   - task: Maven@3
