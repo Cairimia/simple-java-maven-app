@@ -36,6 +36,14 @@ jobs:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'package'
+# Publish build artifacts
+# Publish build artifacts to Azure Pipelines or a Windows file share
+  - task: PublishBuildArtifacts@1
+    displayName: publish Maven test
+    inputs:
+      pathToPublish: 'D:\a\1\s\target\test-classes'
+      artifactName: 'MavenTest' 
+      publishLocation: 'Container'
 
 - job: MAC
   pool:
@@ -51,3 +59,4 @@ jobs:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'package'
+
