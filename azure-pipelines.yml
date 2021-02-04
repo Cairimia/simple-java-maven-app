@@ -8,12 +8,10 @@ trigger:
   branches:
     include:
     - master
-  paths:
-    include:
-    - azure-pipelines.yml
-
+    - develop
+    
 jobs:
-- job: Ubuntu
+- job: Master
   pool:
     vmImage: 'ubuntu-latest'
   steps:
@@ -27,8 +25,9 @@ jobs:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'package'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
-- job: Windows
+- job: Develop
   pool:
     vmImage: 'Windows-2019'
   steps:
@@ -50,19 +49,7 @@ jobs:
       pathToPublish: 'D:\a\1\s\target\test-classes'
       artifactName: 'MavenTest' 
       publishLocation: 'Container'
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
 
-- job: MAC
-  pool:
-    vmImage: 'macos-latest'
-  steps:
-  - task: Maven@3
-    inputs:
-      mavenPomFile: 'pom.xml'
-      mavenOptions: '-Xmx3072m'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
-      jdkArchitectureOption: 'x64'
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      goals: 'package'
+
 
