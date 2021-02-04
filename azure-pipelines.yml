@@ -3,8 +3,14 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
+# specific path build
 trigger:
-- main
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - azure-pipelines.yml
 
 jobs:
 - job: Ubuntu
