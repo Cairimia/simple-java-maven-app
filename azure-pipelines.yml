@@ -12,6 +12,7 @@ trigger:
     
 jobs:
 - job: Master
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   pool:
     vmImage: 'ubuntu-latest'
   steps:
@@ -25,9 +26,9 @@ jobs:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'package'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
 - job: Develop
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   pool:
     vmImage: 'Windows-2019'
   steps:
@@ -49,7 +50,5 @@ jobs:
       pathToPublish: 'D:\a\1\s\target\test-classes'
       artifactName: 'MavenTest' 
       publishLocation: 'Container'
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
-
 
 
