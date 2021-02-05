@@ -7,9 +7,9 @@ trigger:
 - master
 
 jobs:
-- job: $(job_name)
+- job: '$(job_name)'
   pool:
-    vmImage: $(vm_image)
+    vmImage: '$(vm_image)'
 
   steps:
   - task: Maven@3
