@@ -1,19 +1,52 @@
-# Maven
+  # Maven
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
 - master
-jobs:
-- job: windows
-  displayName: "$(displayName)"
-  pool:
-    vmImage: $(vm_image)
 
+jobs:
+- job: Ubuntu
+  pool:
+    vmImage: 'ubuntu-latest'
   steps:
   - task: Maven@3
-    displayName: "$(displayName)"
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      goals: 'package'
+
+- job: Windows
+  pool:
+    vmImage: 'Windows-2019'
+  steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      goals: 'package'
+# Run a PowerShell script on Linux, macOS, or Windows
+  - task: PowerShell@2
+    - powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
+      env:
+        SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+
+- job: MAC
+  pool:
+    vmImage: 'macos-latest'
+  steps:
+  - task: Maven@3
     inputs:
       mavenPomFile: 'pom.xml'
       mavenOptions: '-Xmx3072m'
