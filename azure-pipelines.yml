@@ -7,7 +7,7 @@ trigger:
 - master
 
 jobs:
-- job: '$(job_name)'
+- job: 'windows'
   pool:
     vmImage: '$(vm_image)'
 
