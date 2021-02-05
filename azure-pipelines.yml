@@ -5,10 +5,11 @@
 
 trigger:
 - master
-
+variables:
+  test: "SomeValue"
 jobs:
 - job: windows
-  displayName: "$(env:displayName)"
+  displayName: "$(test)"
   pool:
     vmImage: $(vm_image)
 
