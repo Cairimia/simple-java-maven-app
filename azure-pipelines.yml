@@ -8,6 +8,7 @@ trigger:
 
 jobs:
 - job: 'windows'
+  displayName: 'windows_display'
   pool:
     vmImage: '$(vm_image)'
 
