@@ -9,13 +9,13 @@ variables:
   test: "SomeValue"
 jobs:
 - job: windows
-  displayName: "$(test)"
+  displayName: "$(displayName)"
   pool:
     vmImage: $(vm_image)
 
   steps:
   - task: Maven@3
-    displayName: "$(test)"
+    displayName: "$(displayName)"
     inputs:
       mavenPomFile: 'pom.xml'
       mavenOptions: '-Xmx3072m'
