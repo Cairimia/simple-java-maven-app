@@ -29,6 +29,14 @@ jobs:
         # Write your PowerShell commands here.
         
         Write-Host "Hello World"
-        Write-Host "$(Build.SourceBranch)"
+        Write-Host "$(System.TeamProject)"
+        Write-Host "$(Build.Repository.Name)"
+        Write-Host "$(Build.SourceBranchName)"
+        Write-Host "$(Build.Reason)"
+        Write-Host "$(BuildID)"
+        Write-Host "$(Build.ArtifactStagingDirectory)"
+        Write-Host "$(Agent.BuildDirectory)"
+        Write-Host "$(Agent.OS)"
+        Write-Host "$(System.JobName)"
 
         
