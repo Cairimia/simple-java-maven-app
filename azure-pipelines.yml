@@ -15,6 +15,7 @@ jobs:
 
   steps:
   - task: Maven@3
+    displayName: "$(test)"
     inputs:
       mavenPomFile: 'pom.xml'
       mavenOptions: '-Xmx3072m'
