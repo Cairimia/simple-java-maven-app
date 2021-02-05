@@ -6,11 +6,11 @@
 trigger:
 - main
     
-variables:
- job: 'Windows'
- vmImage: 'Windows-2019'
-
 jobs:
+# Set variables
+  variables:
+    job: 'Windows'
+    vmImage: 'Windows-2019'
 - job: $(job)
   pool:
     vmImage: $(vmImage)
