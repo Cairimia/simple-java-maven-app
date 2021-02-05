@@ -11,9 +11,9 @@ variables:
  vmImage: 'Windows-2019'
 
 jobs:
-- job: echo $(job)
+- job: $(job)
   pool:
-    vmImage: echo $(vmImage)
+    vmImage: $(vmImage)
   steps:
   - task: Maven@3
     inputs:
