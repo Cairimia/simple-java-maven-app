@@ -5,8 +5,6 @@
 
 trigger:
 - master
-variables:
-  test: "SomeValue"
 jobs:
 - job: windows
   displayName: "$(displayName)"
