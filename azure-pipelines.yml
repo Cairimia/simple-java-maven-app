@@ -7,10 +7,10 @@ trigger:
 - master
 
 jobs:
-- job: 'windows'
-  displayName: '$(displayName)'
+- job: windows
+  displayName: $(displayName)
   pool:
-    vmImage: '$(vm_image)'
+    vmImage: $(vm_image)
 
   steps:
   - task: Maven@3
