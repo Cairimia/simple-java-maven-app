@@ -11,7 +11,7 @@ jobs:
   pool:
     vmImage: 'Windows-2019'
   steps:
-  - template: simple-java-maven-app/tasks-template.yml
+  - template: master/tasks-template.yml
 
 - job: Ubuntu
   pool:
