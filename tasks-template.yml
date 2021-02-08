@@ -1,14 +1,6 @@
   #This file is for all tasks
   parameters:
-  - project name: "$(System.TeamProject)"
-  - repository name: "$(Build.Repository.Name)"
-  - branch name: "$(Build.SourceBranchName)"
-  - trigger name: "$(Build.Reason)"
-  - build no: "$(Build.BuildId)"
-  - artifacts folder path: "$(Build.ArtifactStagingDirectory)"
-  - build folder path: "$(Agent.BuildDirectory)"
-  - OS name: "$(Agent.OS)"
-  - job name: "$(System.JobName)"
+  - name: "$(System.TeamProject)"
 
   steps:
   - task: Maven@3
