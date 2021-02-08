@@ -1,6 +1,6 @@
   #This file is for all tasks
   parameters:
-  - projectname: ''
+    projectname: ''
 
   steps:
   - task: Maven@3
