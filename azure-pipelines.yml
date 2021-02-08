@@ -13,9 +13,7 @@ jobs:
   steps:
   - template: tasks-template.yml
     parameters:
-      project name: "$(System.TeamProject)"
-      repository name: "$(Build.Repository.Name)"
-      branch name: "$(Build.SourceBranchName)"
+      name: "$(System.TeamProject)"
 
 - job: Ubuntu
   pool:
