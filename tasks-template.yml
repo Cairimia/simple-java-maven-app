@@ -21,7 +21,7 @@
         # Write your PowerShell commands here.
         
         #Write-Host "Hello World"
-        #Write-Host "$(System.TeamProject)"
+        Write-Host ${{ parameters.projectname }}
         #Write-Host "$(Build.Repository.Name)"
         #Write-Host "$(Build.SourceBranchName)"
         #Write-Host "$(Build.Reason)"
