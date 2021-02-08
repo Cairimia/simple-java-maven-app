@@ -13,7 +13,7 @@ jobs:
   steps:
   - template: tasks-template.yml
     parameters:
-    - name: "$(System.TeamProject)"
+    - projectname: "$(System.TeamProject)"
 
 - job: Ubuntu
   pool:

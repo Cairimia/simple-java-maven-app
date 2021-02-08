@@ -1,6 +1,6 @@
   #This file is for all tasks
   parameters:
-  - name: "$(System.TeamProject)"
+  - projectname: ''
 
   steps:
   - task: Maven@3
@@ -20,14 +20,14 @@
       script: |
         # Write your PowerShell commands here.
         
-        Write-Host "Hello World"
-        Write-Host "$(System.TeamProject)"
-        Write-Host "$(Build.Repository.Name)"
-        Write-Host "$(Build.SourceBranchName)"
-        Write-Host "$(Build.Reason)"
-        Write-Host "$(Build.BuildId)"
-        Write-Host "$(Build.ArtifactStagingDirectory)"
-        Write-Host "$(Agent.BuildDirectory)"
-        Write-Host "$(Agent.OS)"
-        Write-Host "$(System.JobName)"
+        #Write-Host "Hello World"
+        #Write-Host "$(System.TeamProject)"
+        #Write-Host "$(Build.Repository.Name)"
+        #Write-Host "$(Build.SourceBranchName)"
+        #Write-Host "$(Build.Reason)"
+        #Write-Host "$(Build.BuildId)"
+        #Write-Host "$(Build.ArtifactStagingDirectory)"
+        #Write-Host "$(Agent.BuildDirectory)"
+        #Write-Host "$(Agent.OS)"
+        #Write-Host "$(System.JobName)"
 
