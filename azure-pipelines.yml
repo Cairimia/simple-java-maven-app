@@ -12,6 +12,10 @@ jobs:
     vmImage: 'Windows-2019'
   steps:
   - template: tasks-template.yml
+    parameters:
+      project name: "$(System.TeamProject)"
+      repository name: "$(Build.Repository.Name)"
+      branch name: "$(Build.SourceBranchName)"
 
 - job: Ubuntu
   pool:
