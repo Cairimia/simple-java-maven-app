@@ -1,6 +1,8 @@
   #This file is for all tasks
   parameters:
-    projectname: ''
+    param1: ''
+    param3: ''
+    param2: ''
 
   steps:
   - task: Maven@3
@@ -22,12 +24,12 @@
         
         #Write-Host "Hello World"
         Write-Host ${{ parameters.projectname }}
-        #Write-Host "$(Build.Repository.Name)"
-        #Write-Host "$(Build.SourceBranchName)"
-        #Write-Host "$(Build.Reason)"
-        #Write-Host "$(Build.BuildId)"
-        #Write-Host "$(Build.ArtifactStagingDirectory)"
-        #Write-Host "$(Agent.BuildDirectory)"
-        #Write-Host "$(Agent.OS)"
-        #Write-Host "$(System.JobName)"
+        Write-Host "$(Build.Repository.Name)"
+        Write-Host "$(Build.SourceBranchName)"
+        Write-Host "$(Build.Reason)"
+        Write-Host "$(Build.BuildId)"
+        Write-Host "$(Build.ArtifactStagingDirectory)"
+        Write-Host "$(Agent.BuildDirectory)"
+        Write-Host "$(Agent.OS)"
+        Write-Host "$(System.JobName)"
 
