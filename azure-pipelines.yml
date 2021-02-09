@@ -13,17 +13,27 @@ jobs:
   steps:
   - template: tasks-template.yml
     parameters:
-      projectname: "$(System.TeamProject)"
+      param1: "$(System.TeamProject)"
+      param2: "$(Build.Repository.Name)"
+      param3: $(Build.SourceBranchName)"
 
 - job: Ubuntu
   pool:
     vmImage: 'ubuntu-latest'
   steps:
   - template: tasks-template.yml
+    parameters:
+      param1: "$(Build.Reason)"
+      param2: "$(Build.BuildId)"
+      param3: "$(Build.ArtifactStagingDirectory)"
       
 - job: MAC
   pool:
     vmImage: 'macos-latest'
   steps:
   - template: tasks-template.yml
+    parameters:
+      param1: "$(Agent.BuildDirectory)"
+      param2: "$(Agent.OS)"
+      param3: "$(System.JobName)"
   
