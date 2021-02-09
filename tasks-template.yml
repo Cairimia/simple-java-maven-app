@@ -1,8 +1,8 @@
   #This file is for all tasks
   parameters:
     param1: ''
-    param3: ''
     param2: ''
+    param3: ''
 
   steps:
   - task: Maven@3
