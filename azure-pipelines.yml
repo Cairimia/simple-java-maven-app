@@ -15,7 +15,7 @@ jobs:
     parameters:
       param1: "$(System.TeamProject)"
       param2: "$(Build.Repository.Name)"
-      param3: $(Build.SourceBranchName)"
+      param3: "$(Build.SourceBranchName)"
 
 - job: Ubuntu
   pool:
